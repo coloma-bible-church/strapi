@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   build:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
 
     steps:
@@ -41,6 +42,7 @@ jobs:
           path: release.zip
 
   terraform:
+    timeout-minutes: 90
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -77,6 +79,7 @@ jobs:
         run: terraform apply -input=false -auto-approve
 
   deploy:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     needs: [build, terraform]
     environment:
