@@ -1,0 +1,37 @@
+{
+  "name": "cbc-strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Strapi for Coloma Bible Church",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "NODE_ENV=production node node_modules/@strapi/strapi/bin/strapi.js start",
+    "build": "NODE_ENV=production strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-cloud": "4.20.1",
+    "@strapi/plugin-i18n": "4.20.1",
+    "@strapi/plugin-users-permissions": "4.20.1",
+    "@strapi/strapi": "4.20.1",
+    "mysql": "2.18.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "sqlite3": "^5.1.7",
+    "strapi-provider-email-azure": "^1.0.3",
+    "styled-components": "5.3.3"
+  },
+  "author": {
+    "name": "Matthew Thomas"
+  },
+  "strapi": {
+    "uuid": "227c6630-ffcd-473c-ac53-dd2e74b8e11e"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

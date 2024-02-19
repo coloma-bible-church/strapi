@@ -1,0 +1,51 @@
+name: Destroy Azure environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Are you sure you want to do this? Type the branch/environment name to continue'
+        type: string
+        required: true
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    environment:
+      name: ${{ github.ref_name }}
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      TF_VAR_app_name: 'website-${{ github.ref_name }}'
+      TF_VAR_email_domain_id: ${{ secrets.EMAIL_DOMAIN_ID }}
+      TF_VAR_region: 'northcentralus'
+      TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_VAR_tenant_id: ${{ secrets.ARM_TENANT_ID }}
+
+    steps:
+      - name: confirmation
+        if: ${{ github.ref_name != inputs.confirmation }}
+        run: |
+          >&2 echo "Incorrect ref_name. You entered ${{ inputs.confirmation }} instead of ${{ github.ref_name }}"
+          false
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: terraform fmt
+        run: terraform fmt -check
+      
+      - name: terraform init
+        run: terraform init -input=false -lockfile=readonly -backend-config="key=${{ env.TF_VAR_app_name }}.terraform.state"
+      
+      - name: terraform destroy
+        run: terraform destroy -input=false -auto-approve

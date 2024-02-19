@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speakers",
+  "info": {
+    "singularName": "speaker",
+    "pluralName": "speakers",
+    "displayName": "Speaker"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "blocks",
+      "required": true
+    },
+    "sermons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sermon.sermon",
+      "mappedBy": "speaker"
+    }
+  }
+}

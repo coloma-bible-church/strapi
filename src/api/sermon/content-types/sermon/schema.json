@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermons",
+  "info": {
+    "singularName": "sermon",
+    "pluralName": "sermons",
+    "displayName": "Sermon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "scriptures": {
+      "displayName": "Scripture",
+      "type": "component",
+      "repeatable": true,
+      "component": "sermon-scripture.scripture"
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "speaker": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::speaker.speaker",
+      "inversedBy": "sermons"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sermon_scripture_scriptures",
+  "info": {
+    "displayName": "Scripture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "reference": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

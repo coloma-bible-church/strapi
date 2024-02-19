@@ -1,0 +1,7 @@
+/.env
+/.strapi/
+/.strapi-updater.json
+/.terraform/
+/.tmp/
+/dist/
+/node_modules/

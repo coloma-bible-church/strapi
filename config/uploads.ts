@@ -1,0 +1,8 @@
+/** 50 GiB */
+export const MAX_UPLOAD_SIZE_BYTES = 50 * 1024 * 1024 * 1024;
+
+/** 5 Mbps */
+export const MIN_UPLOAD_SPEED_BITS_PER_SECOND = 5 * 1024 * 1024;
+
+/** 50 GiB @ 5 Mbps = 23.86 hours */
+export const MAX_UPLOAD_TIME_SECONDS = MAX_UPLOAD_SIZE_BYTES * 8 / MIN_UPLOAD_SPEED_BITS_PER_SECOND;
