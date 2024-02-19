@@ -27,7 +27,8 @@
     "name": "Matthew Thomas"
   },
   "strapi": {
-    "uuid": "227c6630-ffcd-473c-ac53-dd2e74b8e11e"
+    "uuid": "227c6630-ffcd-473c-ac53-dd2e74b8e11e",
+    "telemetryDisabled": true
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
