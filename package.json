@@ -11,17 +11,16 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-cloud": "4.25.20",
-    "@strapi/plugin-i18n": "4.25.20",
-    "@strapi/plugin-users-permissions": "4.25.20",
-    "@strapi/strapi": "4.25.20",
+    "@strapi/plugin-cloud": "5.9.0",
+    "@strapi/plugin-users-permissions": "5.9.0",
+    "@strapi/strapi": "5.9.0",
     "mysql": "2.18.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "sqlite3": "^5.1.7",
+    "react-router-dom": "^6.0.0",
     "strapi-provider-email-azure": "^1.0.3",
-    "styled-components": "5.3.3"
+    "styled-components": "^6.0.0",
+    "better-sqlite3": "11.3.0"
   },
   "author": {
     "name": "Matthew Thomas"
